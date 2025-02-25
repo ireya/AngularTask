@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
-import { FormsModule } from '@angular/forms'; // Import FormsModule for [(ngModel)]
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-form',
   standalone: true,
-  imports: [FormsModule], // Add FormsModule to the imports array
+  imports: [FormsModule], 
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css'],
 })
@@ -24,19 +24,17 @@ export class ProductFormComponent {
     if (productId) {
       this.isEditMode = true;
       const id = +productId;
-
-      // Retrieve the array value from the signal and use `find`
       const products = this.productService.getProducts()();
-      this.product = products.find((p) => p.id === id)!; // Find the product by ID
+      this.product = products.find((p) => p.id === id)!;
     }
   }
 
   onSubmit(): void {
     if (this.isEditMode) {
-      this.productService.updateProduct(this.product); // Update the existing product
+      this.productService.updateProduct(this.product); 
     } else {
-      this.productService.addProduct(this.product); // Add a new product
+      this.productService.addProduct(this.product); 
     }
-    this.router.navigate(['/']); // Navigate back to the product list
+    this.router.navigate(['/']); 
   }
 }
