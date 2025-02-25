@@ -2,21 +2,20 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
-import { NgFor } from '@angular/common'; // Import NgFor for *ngFor
-import { RouterModule } from '@angular/router'; // Import RouterModule for routerLink
+import { NgFor } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [NgFor, RouterModule], // Add NgFor and RouterModule to the imports array
+  imports: [NgFor, RouterModule],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
-  products: () => Product[]; // Declare `products` as a function returning `Product[]`
+  products: () => Product[];
 
   constructor(private productService: ProductService, private router: Router) {
-    // Initialize `products` to call `getProducts()` and retrieve the signal's value
     this.products = () => this.productService.getProducts()();
   }
 
