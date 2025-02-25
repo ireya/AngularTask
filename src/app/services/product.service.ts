@@ -6,9 +6,9 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
   private products = signal<Product[]>([
-    { id: 1, name: 'Laptop', price: 1000, description: 'High-performance laptop' },
-    { id: 2, name: 'Smartphone', price: 800, description: 'Latest smartphone model' },
-    { id: 3, name: 'Headphones', price: 150, description: 'Noise-cancelling headphones' },
+    { id: 1, name: 'Laptop', price: 100000, description: 'High-performance laptop' },
+    { id: 2, name: 'Smartphone', price: 30000, description: 'Latest smartphone model' },
+    { id: 3, name: 'Headphones', price: 1500, description: 'Noise-cancelling headphones' },
   ]);
 
   getProducts() {
